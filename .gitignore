@@ -1,0 +1,18 @@
+# Kompilierte Dateien
+*.exe
+*.out
+*.o
+
+# Visual Studio Dateien
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# Andere
+*.log
+.DS_Store
+
+## Author
+.mascn 
