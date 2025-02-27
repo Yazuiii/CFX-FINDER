@@ -3,18 +3,15 @@
 #include <windows.h>
 #include <winhttp.h>
 
-// Function to set console color to purple
 void setDarkPurple() {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 }
 
-// Kompilieren mit: g++ cfxchecker.cpp -o cfxchecker.exe -lwinhttp
 
 void getServerIP(const std::string& cfxLink) {
     // Set color at the start
     setDarkPurple();
     
-    // Extrahiere die Server-ID und erstelle die Request-URL
     std::string request;
     std::string displayUrl;
     
@@ -23,7 +20,7 @@ void getServerIP(const std::string& cfxLink) {
         displayUrl = cfxLink;
     } else if (cfxLink.find("https://cfx.re/join/") == 0) {
         request = cfxLink;
-        displayUrl = cfxLink.substr(8); // Remove "https://"
+        displayUrl = cfxLink.substr(8);
     } else {
         request = "https://cfx.re/join/" + cfxLink;
         displayUrl = "cfx.re/join/" + cfxLink;
@@ -41,7 +38,6 @@ void getServerIP(const std::string& cfxLink) {
         return;
     }
 
-    // Konvertiere die URL für WinHTTP
     std::wstring wideUrl(request.begin(), request.end());
     WCHAR hostname[256] = L"cfx.re";
     WCHAR urlPath[256];
@@ -97,8 +93,7 @@ void getServerIP(const std::string& cfxLink) {
         std::wstring response(headerBuffer);
         std::string serverIP(response.begin(), response.end());
         
-        // Entferne "http://" und "/" vom Ende
-        serverIP = serverIP.substr(7);  // Remove "http://"
+        serverIP = serverIP.substr(7); 
         if (serverIP.back() == '/') {
             serverIP.pop_back();
         }
