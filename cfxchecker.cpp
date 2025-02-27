@@ -9,7 +9,6 @@ void setDarkPurple() {
 
 
 void getServerIP(const std::string& cfxLink) {
-    // Set color at the start
     setDarkPurple();
     
     std::string request;
@@ -113,10 +112,8 @@ void getServerIP(const std::string& cfxLink) {
 }
 
 int main() {
-    // Set initial color and keep it for the entire program
     setDarkPurple();
     
-    // ASCII Art Banner
     std::cout << "   _____ ________   __              _____ _____     ______ _           _           \n";
     std::cout << "  / ____|  ____\\ \\ / /             |_   _|  __ \\   |  ____(_)         | |          \n";
     std::cout << " | |    | |__   \\ V /   _ __ ___     | | | |__) |  | |__   _ _ __   __| | ___ _ __ \n";
