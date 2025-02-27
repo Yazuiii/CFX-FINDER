@@ -80,7 +80,6 @@ void getServerIP(const std::string& cfxLink) {
         return;
     }
 
-    // Suche nach dem X-CitizenFX-Url Header
     WCHAR headerBuffer[512];
     DWORD bufferLength = sizeof(headerBuffer);
     if (WinHttpQueryHeaders(hRequest,
